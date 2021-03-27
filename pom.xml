@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-  xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.czetsuyatech</groupId>
   <artifactId>quarkus-training</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <jkube.version>1.1.1</jkube.version>
     <maven.compiler.parameters>true</maven.compiler.parameters>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
@@ -18,7 +18,6 @@
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
     <quarkus.platform.version>1.12.2.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-    <jkube.version>1.1.1</jkube.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -68,6 +67,10 @@
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-openshift</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-health</artifactId>
     </dependency>
   </dependencies>
   <build>
@@ -140,9 +143,6 @@
     </profile>
     <profile>
       <id>openshift</id>
-      <properties>
-        <jkube.generator.quarkus.nativeImage>true</jkube.generator.quarkus.nativeImage>
-      </properties>
       <build>
         <pluginManagement>
           <plugins>
@@ -171,6 +171,9 @@
           </plugins>
         </pluginManagement>
       </build>
+      <properties>
+        <jkube.generator.quarkus.nativeImage>true</jkube.generator.quarkus.nativeImage>
+      </properties>
     </profile>
   </profiles>
 </project>
