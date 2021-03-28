@@ -143,37 +143,6 @@
     </profile>
     <profile>
       <id>openshift</id>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.eclipse.jkube</groupId>
-              <artifactId>openshift-maven-plugin</artifactId>
-              <version>${jkube.version}</version>
-              <executions>
-                <execution>
-                  <goals>
-                    <goal>resource</goal>
-                    <goal>build</goal>
-                  </goals>
-                </execution>
-              </executions>
-              <configuration>
-                <enricher>
-                  <config>
-                    <jkube-service>
-                      <type>NodePort</type>
-                    </jkube-service>
-                  </config>
-                </enricher>
-              </configuration>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-      </build>
-      <properties>
-        <jkube.generator.quarkus.nativeImage>true</jkube.generator.quarkus.nativeImage>
-      </properties>
     </profile>
   </profiles>
 </project>

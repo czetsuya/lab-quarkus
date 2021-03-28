@@ -14,4 +14,11 @@ public class HelloResource {
   public String hello() {
     return "Hello " + ThreadLocalUserHolder.get();
   }
+
+  @GET
+  @Path("/openshift")
+  @Produces(MediaType.APPLICATION_JSON)
+  public String openshift() {
+    return "Hello OpenShift";
+  }
 }
